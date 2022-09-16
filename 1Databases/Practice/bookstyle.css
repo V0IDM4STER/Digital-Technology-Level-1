@@ -1,0 +1,158 @@
+body {
+    margin:auto;
+    padding: 50px;
+    color: #000000; /* Black */
+    font-family: 'Gideon Roman', cursive;
+}
+
+/* ---- Set up site grid ---- */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px 62% 12%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "logo banner banner"
+        "nav nav nav"
+        "side main main"
+        "bottomnav bottomnav bottomnav"
+        "footer footer footer";
+    grid-gap: 4px;
+}
+
+/* ---- End of grid setup ---- */
+
+/* -000- Area styling -000- */
+
+.box {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #dddddd; /* White */
+}
+/* Logo and banner background colour are the same*/
+.logo, .banner, .side{
+    background-color: #af8e6e; /* Light brown */
+}
+/* Area specifics */
+.logo {
+    grid-area: logo;
+    padding: 0;
+    height: 172px;
+    width: 300px;
+    background-image: url(Images/logo_v2.png)
+}
+
+.banner {
+    grid-area: banner;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #917155; /* Dark brown */
+    font-size: 14pt;
+    text-align: center;
+}
+
+.main {
+    grid-area: main;
+    background-color: #fbf8e0; /* Cream */ 
+    border: solid 1px #000000;/* Black */
+}
+
+.side {
+    grid-area: side;
+    overflow: hidden;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #443c32; /* Darker brown */
+    color: #ffffff; /* Text colour is white in very dark area */
+    text-align: right;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Libre Baskerville', serif;
+}
+/* -000- End of area styling -000- */
+
+/* Navigation links */
+.nav a {font-weight: bold;}
+.nav a:link, .nav a:visited {color: #fbf8e0;} /* Cream */
+.nav a:hover {color: #b1ada9; text-decoration: none;} /* Grey */
+
+/* Bottom navigation links */
+.bottomnav a {font-weight: bold;}
+.bottomnav a:link, .bottomnav a:visited {color: #fbf8e0;} /* Cream */
+.bottomnav a:hover {color: #b1ada9; text-decoration: none;} /* Grey */
+
+/* Sidebar links */
+.side a {font-weight: bold;}
+.side a:link, .side a:visited {color: #fbf8e0;} /* Cream */
+.side a:hover {color: #f2efd8;} /* Light Grey */
+.side a:hover {text-decoration: none;}
+
+/* In-Page links */
+a {font-weight: bold;}
+a:link {color: #4F6363;} /* Slightly blueish grey */
+a:hover {color: #000000;} /* Black */
+a:visited {color: #917155;} /* Light brown */
+
+/*Contact form styling*/
+.contact{
+    width: 100%;
+    margin: auto;
+}
+
+/* Header image styling */
+.header_image {
+    text-align: center;
+}
+
+/* Sidebar image styling */
+.image_circle {
+    border-radius: 50%;
+    max-width: 85%;
+    height: auto;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Sidebar image centering */
+.center_image {
+    text-align: center;
+}
+
+/* Sub Heading Formatting */
+.sub_heading {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+    color: #4F6363; /* Blue-grey */
+}
+
+/* Styling for my contact form header */
+.my_header {
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Results styling */
+.results {
+    background-color: #FFFFFF;
+    border: solid 1px #000000;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Error Formatting */
+.error {
+    background-color: #FFE0ED; /* Pale Pink */
+    border: 2px solid #8A1737; /* Dark Red */
+    color: #8A1737; /* Dark Red */
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.search {
+    width: 200px;
+}

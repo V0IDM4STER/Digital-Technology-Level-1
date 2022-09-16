@@ -1,0 +1,150 @@
+body {
+    margin: auto;
+    color: #000000; /* Black */
+    padding: 50px;
+    font-family: 'Cabin', sans-serif;
+}
+
+/* --- Grid Setup --- */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px 62% 16%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "logo banner banner"
+        "nav nav nav"
+        "main main main"
+        "footer footer footer";
+    grid-gap: 4px;
+}
+
+/* --- End of Grid Setup --- */
+
+/* --- Start of Area Specifics --- */
+
+.box {
+    padding: 20px;
+    border: solid 1px #000000; /* Black */
+    border-radius: 10px;
+}
+
+.logo {
+    grid-area: logo;
+    background-image: url(Images/logo_v1.png);
+    background-size: 100%;
+    padding: 0px;
+    height: 200px;
+    width: 300px;
+}
+
+.banner {
+    grid-area: banner;
+    background-color: #1c1c1c; /* Eerie Black */
+    color: #ffffff;
+    font-family: 'Lobster', cursive;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #abb3c0; /* Cadet Blue Crayola */
+    text-align: center;
+}
+
+.main {
+    grid-area: main;
+    background-color: #f6f6f5; /* Cultured */
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "text image";
+    grid-gap: 4px;
+}
+
+.text {
+    grid-area: text;
+    background-color: #fffffa; /* Cultured */
+}
+
+.image {
+    grid-area: image;
+    background-color: #fffffa; /* Cultured */
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #abb3c0; /* Cadet Blue Crayola */
+}
+
+/* --- End of Area Specifics --- */
+
+/* --- Start of Link Styling --- */
+
+.nav a {font-weight: bold;}
+.nav a:link, .nav a:visited {color: #ffffff;} /* White */
+.nav a:hover {color: #000000; text-decoration: none;} /* Black */
+
+/* --- End of Link Styling --- */
+
+/* Image Styling */
+.main-image {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Emphasised Text Styling */
+.sub-heading {
+    font-weight: bold;
+    color: #0e5680;
+}
+
+/* Form Styling */
+.form {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+
+/* About Me Text Styling */
+.about-me {
+    text-align: center;
+}
+
+/* About Me Image Styling */
+.about-me-image {
+    border-radius: 50%;
+    max-width: 55%;
+    height: auto;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* --- Start of CC License Styling --- */
+.license {
+    text-align: right
+}
+
+.license-image {
+    float: right;
+}
+
+.license-text {
+    position: relative; top: 8px;
+}
+
+.footer a {font-weight: bold;}
+.footer a:link, .footer a:visited {color: #ffffff;} /* White */
+.footer a:hover {color: #000000; text-decoration: none;} /* Black */
+
+/* --- End of CC License Styling --- */
+
+/* --- Start of Heading Styling --- */
+h1 {
+    font-size: 55px;
+}
+
+h2, h3 {
+    font-family: 'Lobster', cursive; 
+}
+/* --- End of Heading Styling --- */

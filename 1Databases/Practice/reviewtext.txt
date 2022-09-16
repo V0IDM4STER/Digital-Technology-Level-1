@@ -1,0 +1,19 @@
+<!-- Results go here -->
+            
+            <div class="results">
+            
+            <p>Title: <span class="sub_heading">Title Holder</span></p>
+                
+            <p>Author: <span class="sub_heading">Author Holder</span></p>
+        
+            <p>Genre (Text Type): <span class="sub_heading">Genre Holder</span></p>
+
+            <p>Rating: <span class="sub_heading">Rating Holder</span></p>
+                
+            <p><span class="sub_heading">Review / Response</span></p>
+                
+            <p>
+                Review / Response Holder
+            </p>
+            
+            </div> <!-- end results -->
