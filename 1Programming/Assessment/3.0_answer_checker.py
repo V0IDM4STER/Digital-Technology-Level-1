@@ -3,6 +3,7 @@ import random
 def function1(question, list1, list2):
     global pattern
     global correct_answer
+    global d
 
     print(list1[question])
 
@@ -48,10 +49,14 @@ def function1(question, list1, list2):
         pattern = pattern5
         correct_answer = "a"
     
-    print(*pattern, sep='\n')
+    print("A. {}".format(pattern[0]))
+    print("B. {}".format(pattern[1]))
+    print("C. {}".format(pattern[2]))
+    print("D. {}".format(pattern[3]))
 
-questions = ["Q1", "Q2", "Q3"]
-answers = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12"]
+# Main Routine
+questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", "When did New Zealand gain independence from Britain?"]
+answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947"]
 
 question = random.randint(0, 2)
 
@@ -63,4 +68,4 @@ answer = answer.lower()
 if answer == correct_answer:
     print("Correct!")
 else:
-    print("Incorrect!")
+    print("Incorrect! The correct answer is {}.".format(d))

@@ -1,11 +1,9 @@
+# Quiz Quest Part 2
+# Random Question Generator
+
 import random
 
 def function1(question, list1, list2):
-    global a
-    global b
-    global c
-    global d
-
     print(list1[question])
 
     if question == 0:
