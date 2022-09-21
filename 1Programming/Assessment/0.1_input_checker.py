@@ -37,4 +37,4 @@ def intcheck(question, low = None, high = None):
             continue
 
 # Main Routine
-num_of_questions = intcheck("How many questions do you want to answer?", 1, 25)
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 25)
