@@ -139,4 +139,4 @@ while keep_going == "":
 
     print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
 
-keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
