@@ -25,10 +25,10 @@ def function1(question, list1, list2):
         d = list2[d_raw]
 
     answer_list = [a, b, c, d]
-    random.shuffle(answer_list)
     
     print(*answer_list, sep='\n')
 
+# Main Routine
 questions = ["Q1", "Q2", "Q3"]
 answers = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12"]
 
