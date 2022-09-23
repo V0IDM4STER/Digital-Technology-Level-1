@@ -1,4 +1,67 @@
+# Quiz Quest Part 6
+# Game Loop
+
 import random
+
+def question_generator(question, list1, list2):
+    global pattern
+    global correct_answer
+    global incorrect_answers
+    global d
+
+    print(list1[question])
+
+    if question == 0:
+        a = list2[0]
+        b = list2[1]
+        c = list2[2]
+        d = list2[3]
+    
+    else:
+        question += 1
+
+        a_raw = question * 4 - 4
+        a = list2[a_raw]
+        b_raw = question * 4 - 3
+        b = list2[b_raw]
+        c_raw = question * 4 - 2
+        c = list2[c_raw]
+        d_raw = question * 4 - 1
+        d = list2[d_raw]
+
+    pattern1 = [a, b, c, d]
+    pattern2 = [d, c, b, a]
+    pattern3 = [b, a, d, c]
+    pattern4 = [c, d, a, b]
+    pattern5 = [d, a, b, c]
+
+    pattern_num = random.randint(1, 5)
+    
+    if pattern_num == 1:
+        pattern = pattern1
+        correct_answer = "d"
+        incorrect_answers = ["a", "b", "c"]
+    elif pattern_num == 2:
+        pattern = pattern2
+        correct_answer = "a"
+        incorrect_answers = ["b", "c", "d"]
+    elif pattern_num == 3:
+        pattern = pattern3
+        correct_answer = "c"
+        incorrect_answers = ["a", "b", "d"]
+    elif pattern_num == 4:
+        pattern = pattern4
+        correct_answer = "b"
+        incorrect_answers = ["a", "c", "d"]
+    else:
+        pattern = pattern5
+        correct_answer = "a"
+        incorrect_answers = ["b", "c", "d"]
+    
+    print("A. {}".format(pattern[0]))
+    print("B. {}".format(pattern[1]))
+    print("C. {}".format(pattern[2]))
+    print("D. {}".format(pattern[3]))
 
 def intcheck(question, low = None, high = None):
 
@@ -35,17 +98,41 @@ def intcheck(question, low = None, high = None):
             print(error)
             continue
 
-for item in range (0, 10):
-    num1 = random.randint(0, 100)
-    num2 = random.randint(0, 100)
-    num1 = int(num1)
-    num2 = int(num2)
+# Main Routine
+questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", "When did New Zealand gain independence from Britain?"]
+answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947"]
 
-    user = int(intcheck("What is {} + {}? ".format(num1, num2)))
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 25)
 
-    answer = int(num1 + num2)
+keep_going = ""
 
-    if user == answer:
-        print("Correct!")
-    else:
-        print("Incorrect! The correct answer is {}.".format(answer))
+while keep_going == "":
+
+    q_answered = 0
+    num_correct = 0
+    num_incorrect = 0
+    
+    while q_answered < num_of_questions:
+        
+        question = random.randint(0, 2)
+
+        question_generator(question, questions, answers)
+
+        answer = input("Answer: ")
+        answer = answer.lower()
+
+        if answer == correct_answer:
+            print("Correct!")
+            num_correct += 1
+        elif answer in incorrect_answers:
+            print("Incorrect! The correct answer is {}.".format(d))
+            num_incorrect += 1
+        else:
+            print("Please enter either a, b, c, or d.")
+            continue
+
+        q_answered += 1
+
+    print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
+
+keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
