@@ -58,8 +58,10 @@ def function1(question, list1, list2):
     print("D. {}".format(pattern[3]))
 
 # Main Routine
-questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", "When did New Zealand gain independence from Britain?"]
-answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947"]
+questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", 
+"When did New Zealand gain independence from Britain?"]
+answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", 
+"1799", "1769", "1917", "1927", "1937", "1947"]
 
 question = random.randint(0, 2)
 

@@ -56,6 +56,7 @@ def question_generator(question, list1, list2):
     print("B. {}".format(pattern[1]))
     print("C. {}".format(pattern[2]))
     print("D. {}".format(pattern[3]))
+
 def intcheck(question, low = None, high = None):
 
     # Sets up error message
@@ -92,8 +93,10 @@ def intcheck(question, low = None, high = None):
             continue
 
 # Main Routine
-questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", "When did New Zealand gain independence from Britain?"]
-answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947"]
+questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", 
+"When did New Zealand gain independence from Britain?"]
+answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", 
+"1799", "1769", "1917", "1927", "1937", "1947"]
 
 num_of_questions = intcheck("How many questions do you want to answer? ", 1, 25)
 q_answered = 0

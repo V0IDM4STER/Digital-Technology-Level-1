@@ -108,7 +108,25 @@ num_correct = 0
 num_incorrect = 0
 
 while q_answered < num_of_questions:
+    already_asked_small = []
+    already_asked_large = []
+    
     question = random.randint(0, 2)
+
+    while question in already_asked_small or already_asked_large:
+        if question <= 9:
+            while question in already_asked_small:
+                question = random.randint(0, 2)
+                continue
+        else:
+            while question in already_asked_large:
+                question = random.randint(0, 2)
+                continue
+    
+    if question <= 9:
+        already_asked_small.append(question)
+    else:
+        already_asked_large.append(question)
 
     question_generator(question, questions, answers)
 

@@ -1,5 +1,6 @@
 # Quiz Quest Full Game
 # Version 1.0
+# Game Info: 
 
 import random
 
