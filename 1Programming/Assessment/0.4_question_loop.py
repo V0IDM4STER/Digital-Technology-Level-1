@@ -98,7 +98,7 @@ questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to th
 answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", 
 "1799", "1769", "1917", "1927", "1937", "1947"]
 
-num_of_questions = intcheck("How many questions do you want to answer? ", 1, 25)
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 3)
 q_answered = 0
 
 while q_answered < num_of_questions:
