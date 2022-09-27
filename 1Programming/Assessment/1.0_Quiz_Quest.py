@@ -107,7 +107,7 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 "Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", "Give women the right to vote",
 "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
-num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 3)
 
 keep_going = ""
 
@@ -116,10 +116,25 @@ while keep_going == "":
     q_answered = 0
     num_correct = 0
     num_incorrect = 0
+
+    already_asked_small = []
+    already_asked_large = []
     
     while q_answered < num_of_questions:
         
-        question = random.randint(0, 7)
+        question = random.randint(0, 2)
+
+        if question <= 9:
+            if question in already_asked_small:
+                continue
+        elif question > 9:
+            if question in already_asked_large:
+                continue
+
+        if question <= 9:
+            already_asked_small.append(question)
+        elif question > 9:
+            already_asked_large(question)
 
         question_generator(question, questions, answers)
 
@@ -140,4 +155,4 @@ while keep_going == "":
 
     print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
 
-    keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
+keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")

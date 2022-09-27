@@ -102,31 +102,29 @@ def intcheck(question, low = None, high = None):
 questions = ["How tall is Aoraki Mount Cook?", "When did Captain Cook come to the islands?", "When did New Zealand gain independence from Britain?"]
 answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947"]
 
-num_of_questions = intcheck("How many questions do you want to answer? ", 1, 25)
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 3)
 q_answered = 0
 num_correct = 0
 num_incorrect = 0
 
+already_asked_small = []
+already_asked_large = []
+
 while q_answered < num_of_questions:
-    already_asked_small = []
-    already_asked_large = []
     
     question = random.randint(0, 2)
 
-    while question in already_asked_small or already_asked_large:
-        if question <= 9:
-            while question in already_asked_small:
-                question = random.randint(0, 2)
-                continue
-        else:
-            while question in already_asked_large:
-                question = random.randint(0, 2)
-                continue
-    
+    if question <= 9:
+        if question in already_asked_small:
+            continue
+    elif question > 9:
+        if question in already_asked_large:
+            continue
+
     if question <= 9:
         already_asked_small.append(question)
-    else:
-        already_asked_large.append(question)
+    elif question > 9:
+        already_asked_large(question)
 
     question_generator(question, questions, answers)
 
