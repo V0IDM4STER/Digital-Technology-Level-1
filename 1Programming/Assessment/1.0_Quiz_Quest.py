@@ -107,7 +107,7 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 "Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", "Give women the right to vote",
 "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
-num_of_questions = intcheck("How many questions do you want to answer? ", 1, 3)
+num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
 
 keep_going = ""
 
@@ -119,10 +119,12 @@ while keep_going == "":
 
     already_asked_small = []
     already_asked_large = []
+
+    valid_answer = False
     
     while q_answered < num_of_questions:
         
-        question = random.randint(0, 2)
+        question = random.randint(0, 7)
 
         if question <= 9:
             if question in already_asked_small:
@@ -131,28 +133,33 @@ while keep_going == "":
             if question in already_asked_large:
                 continue
 
+        while valid_answer == False:
+            
+            question_generator(question, questions, answers)
+
+            answer = input("Answer: ")
+            answer = answer.lower()
+
+            if answer == correct_answer:
+                print("Correct!")
+                num_correct += 1
+                valid_answer = True
+            elif answer in incorrect_answers:
+                print("Incorrect! The correct answer is {}.".format(d))
+                num_incorrect += 1
+                valid_answer = True
+            else:
+                print("Please enter either a, b, c, or d.")
+
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
             already_asked_large(question)
-
-        question_generator(question, questions, answers)
-
-        answer = input("Answer: ")
-        answer = answer.lower()
-
-        if answer == correct_answer:
-            print("Correct!")
-            num_correct += 1
-        elif answer in incorrect_answers:
-            print("Incorrect! The correct answer is {}.".format(d))
-            num_incorrect += 1
-        else:
-            print("Please enter either a, b, c, or d.")
-            continue
-
+        
         q_answered += 1
+
+        valid_answer = False
 
     print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
 
-keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")

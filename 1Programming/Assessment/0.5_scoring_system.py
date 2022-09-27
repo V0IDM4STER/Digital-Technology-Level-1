@@ -110,6 +110,8 @@ num_incorrect = 0
 already_asked_small = []
 already_asked_large = []
 
+valid_answer = False
+
 while q_answered < num_of_questions:
     
     question = random.randint(0, 2)
@@ -121,26 +123,30 @@ while q_answered < num_of_questions:
         if question in already_asked_large:
             continue
 
+    while valid_answer == False:
+        
+        question_generator(question, questions, answers)
+
+        answer = input("Answer: ")
+        answer = answer.lower()
+
+        if answer == correct_answer:
+            print("Correct!")
+            num_correct += 1
+            valid_answer = True
+        elif answer in incorrect_answers:
+            print("Incorrect! The correct answer is {}.".format(d))
+            num_incorrect += 1
+            valid_answer = True
+        else:
+            print("Please enter either A, B, C, or D.")
+
     if question <= 9:
         already_asked_small.append(question)
     elif question > 9:
         already_asked_large(question)
 
-    question_generator(question, questions, answers)
-
-    answer = input("Answer: ")
-    answer = answer.lower()
-
-    if answer == correct_answer:
-        print("Correct!")
-        num_correct += 1
-    elif answer in incorrect_answers:
-        print("Incorrect! The correct answer is {}.".format(d))
-        num_incorrect += 1
-    else:
-        print("Please enter either a, b, c, or d.")
-        continue
-
     q_answered += 1
+    valid_answer = False
 
 print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
