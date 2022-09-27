@@ -1,17 +1,23 @@
 # Quiz Quest Full Game
 # Version 1.0
+# Author: Daniel Hesp
+# Date Created: 28/09/2022
 # Game Info: 
 
 import random
 
+# Question + Answer Generator Function
 def question_generator(question, list1, list2):
+    # Set up global variables
     global pattern
     global correct_answer
     global incorrect_answers
     global d
 
+    # Print the question
     print(list1[question])
 
+    # Get answers from answer list
     if question == 0:
         a = list2[0]
         b = list2[1]
@@ -30,6 +36,7 @@ def question_generator(question, list1, list2):
         d_raw = question * 4 - 1
         d = list2[d_raw]
 
+    # Set up answer patterns and choose one
     pattern1 = [a, b, c, d]
     pattern2 = [d, c, b, a]
     pattern3 = [b, a, d, c]
@@ -38,6 +45,7 @@ def question_generator(question, list1, list2):
 
     pattern_num = random.randint(1, 5)
     
+    # Set correct/incorrect answers depending on pattern
     if pattern_num == 1:
         pattern = pattern1
         correct_answer = "d"
@@ -59,11 +67,13 @@ def question_generator(question, list1, list2):
         correct_answer = "a"
         incorrect_answers = ["b", "c", "d"]
     
+    # Print possible answers
     print("A. {}".format(pattern[0]))
     print("B. {}".format(pattern[1]))
     print("C. {}".format(pattern[2]))
     print("D. {}".format(pattern[3]))
 
+# Input Checking Function
 def intcheck(question, low = None, high = None):
 
     # Sets up error message
@@ -100,32 +110,42 @@ def intcheck(question, low = None, high = None):
             continue
 
 # Main Routine
+# List of Possible Questions 
 questions = ["How tall is Mount Cook?", "When did Captain Cook come to New Zealand?", "When did New Zealand gain independence from Britain?",
 "What animal can you find on the NZ 1 dollar coin?", "In 1893, New Zealand became the first country to do what?", "What is a Tuatara?",
 "When was NZ Rugby Football Union founded?", "When was New Zealand's first Poppy Day?"]
-answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947",
-"Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", "Give women the right to vote",
-"Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
+# Corresponding List of Answers For Questions
+answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947",
+"Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", 
+"Give women the right to vote", "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
+
+# Ask the user how many questions they want to answer
 num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
 
+# Set up and begin game loop
 keep_going = ""
 
 while keep_going == "":
 
+    # Set game score variables
     q_answered = 0
     num_correct = 0
     num_incorrect = 0
 
+    # Set up list of already asked questions
     already_asked_small = []
     already_asked_large = []
 
     valid_answer = False
     
+    # Begin question loop
     while q_answered < num_of_questions:
         
+        # Choose random question number
         question = random.randint(0, 7)
 
+        # Prevent duplicate questions
         if question <= 9:
             if question in already_asked_small:
                 continue
@@ -135,11 +155,14 @@ while keep_going == "":
 
         while valid_answer == False:
             
+            # Generate question + answers, print 
             question_generator(question, questions, answers)
 
+            # Get user's answer
             answer = input("Answer: ")
             answer = answer.lower()
 
+            # Decide if the answer is correct, print appopriate feedback, add 1 to appropriate score 
             if answer == correct_answer:
                 print("Correct!")
                 num_correct += 1
@@ -151,15 +174,19 @@ while keep_going == "":
             else:
                 print("Please enter either a, b, c, or d.")
 
+        # Add question number to list fo already asked questions
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
             already_asked_large(question)
         
+        # Add 1 to number of questions answered
         q_answered += 1
 
         valid_answer = False
 
+    # Print game scores
     print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
 
+    # Ask user if they want to play again
     keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
