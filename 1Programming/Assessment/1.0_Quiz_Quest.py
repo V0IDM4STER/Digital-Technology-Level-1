@@ -4,6 +4,7 @@
 # Date Created: 28/09/2022
 # Game Info: 
 
+# Import Required Modules
 import random
 
 # Question + Answer Generator Function
@@ -120,14 +121,15 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 "Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", 
 "Give women the right to vote", "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
-# Ask the user how many questions they want to answer
-num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
 
 # Set up and begin game loop
 keep_going = ""
 
 while keep_going == "":
 
+    # Ask the user how many questions they want to answer
+    num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
+    
     # Set game score variables
     q_answered = 0
     num_correct = 0
