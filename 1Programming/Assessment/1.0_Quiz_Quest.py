@@ -121,7 +121,6 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 "Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", 
 "Give women the right to vote", "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
-
 # Set up and begin game loop
 keep_going = ""
 

@@ -2,7 +2,7 @@
 # Version 2.0
 # Author: Daniel Hesp
 # Date Created: 30/09/2022
-# Game Info: 
+# Game Info: This is a game coded in Python. It is a multiple-choice quiz game featuring New Zealand trivia questions.
 
 # Import Required Modules
 import random
@@ -122,6 +122,11 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 "Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", 
 "Give women the right to vote", "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
 
+# Introduction
+print()
+print("*** Welcome to the NZ Trivia Quiz Game ***")
+print()
+print("")
 
 # Set up and begin game loop
 keep_going = ""
