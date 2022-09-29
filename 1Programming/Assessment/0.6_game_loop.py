@@ -118,7 +118,7 @@ while keep_going == "":
     valid_answer = False
     
     while q_answered < num_of_questions:
-        
+    
         question = random.randint(0, 2)
 
         if question <= 9:
@@ -144,15 +144,14 @@ while keep_going == "":
                 num_incorrect += 1
                 valid_answer = True
             else:
-                print("Please enter either a, b, c, or d.")
+                print("Please enter either A, B, C, or D.")
 
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
             already_asked_large(question)
-        
-        q_answered += 1
 
+        q_answered += 1
         valid_answer = False
 
     print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
