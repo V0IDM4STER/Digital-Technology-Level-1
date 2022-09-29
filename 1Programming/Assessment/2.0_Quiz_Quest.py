@@ -1,11 +1,12 @@
 # Quiz Quest Full Game
-# Version 1.0
+# Version 2.0
 # Author: Daniel Hesp
-# Date Created: 28/09/2022
-# Game Info: This is a game coded in Python. It is a multiple-choice quiz game featuring New Zealand trivia questions.
+# Date Created: 30/09/2022
+# Game Info: 
 
 # Import Required Modules
 import random
+from termcolor import colored
 
 # Question + Answer Generator Function
 def question_generator(question, list1, list2):
@@ -128,7 +129,9 @@ keep_going = ""
 while keep_going == "":
 
     # Ask the user how many questions they want to answer
+    print()
     num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
+    print()
     
     # Set game score variables
     q_answered = 0
@@ -166,15 +169,21 @@ while keep_going == "":
 
             # Decide if the answer is correct, print appopriate feedback, add 1 to appropriate score 
             if answer == correct_answer:
-                print("Correct!")
+                print()
+                print(colored("Correct!", 'green'))
+                print()
                 num_correct += 1
                 valid_answer = True
             elif answer in incorrect_answers:
-                print("Incorrect! The correct answer is {}.".format(d))
+                print()
+                print(colored("Incorrect! ", "red") + "The correct answer is {}.".format(d))
+                print()
                 num_incorrect += 1
                 valid_answer = True
             else:
-                print("Please enter either a, b, c, or d.")
+                print()
+                print(colored("Please enter either A, B, C, or D.", 'red'))
+                print()
 
         # Add question number to list fo already asked questions
         if question <= 9:
@@ -188,7 +197,10 @@ while keep_going == "":
         valid_answer = False
 
     # Print game scores
-    print("Correct: {}  |  Incorrect: {}".format(num_correct, num_incorrect))
+    print("------------  Game Scores  ------------")
+    print("---  Correct: {}  |  Incorrect: {}  ---".format(num_correct, num_incorrect))
+    print("---------------------------------------")
 
     # Ask user if they want to play again
+    print()
     keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
