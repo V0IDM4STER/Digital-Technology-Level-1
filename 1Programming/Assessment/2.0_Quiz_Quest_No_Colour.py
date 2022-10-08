@@ -1,17 +1,11 @@
 # Quiz Quest Full Game
-# Version 2.0 (With Colour)
+# Version 2.0 (Without Colour)
 # Author: Daniel Hesp
 # Date Created: 30/09/2022
 # Game Info: This is a game coded in Python. It is a multiple-choice quiz game featuring New Zealand trivia questions.
 
-# !!! IMPORTANT !!!
-# This version of the game features coloured messages. If you do not have the termcolor module installed, this game will not work.
-# To install the termcolor module on Windows or macOS, simply open the terminal and type: pip install termcolor.
-# If this does not work, you can swap to the colourless version.
-
 # Import Required Modules
 import random
-from termcolor import colored
 
 # Question + Answer Generator Function
 def question_generator(question, list1, list2):
@@ -103,14 +97,14 @@ def intcheck(question, low = None, high = None):
             # Checks that reponse is not too low
             if low is not None and response < low:
                 print()
-                print(colored("{}".format(error), 'red'))
+                print(error)
                 print()
                 continue
             
             # Checks that response is not too high
             if high is not None and response > high:
                 print()
-                print(colored("{}".format(error), 'red'))
+                print(error)
                 print()
                 continue
 
@@ -118,7 +112,7 @@ def intcheck(question, low = None, high = None):
         
         except ValueError:
             print() 
-            print(colored("{}".format(error), 'red'))
+            print(error)
             print()
             continue
 
@@ -186,19 +180,19 @@ while keep_going == "":
             # Decide if the answer is correct, print appopriate feedback, add 1 to appropriate score 
             if answer == correct_answer:
                 print()
-                print(colored("Correct!", 'green'))
+                print("Correct!")
                 print()
                 num_correct += 1
                 valid_answer = True
             elif answer in incorrect_answers:
                 print()
-                print(colored("Incorrect! ", "red") + "The correct answer is {}.".format(d))
+                print("Incorrect! The correct answer is {}.".format(d))
                 print()
                 num_incorrect += 1
                 valid_answer = True
             else:
                 print()
-                print(colored("Please enter either A, B, C, or D.", 'red'))
+                print("Please enter either A, B, C, or D.")
                 print()
 
         # Add question number to list for already asked questions
