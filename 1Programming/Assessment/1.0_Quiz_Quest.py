@@ -179,7 +179,7 @@ while keep_going == "":
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
-            already_asked_large(question)
+            already_asked_large.append(question)
         
         # Add 1 to number of questions answered
         q_answered += 1

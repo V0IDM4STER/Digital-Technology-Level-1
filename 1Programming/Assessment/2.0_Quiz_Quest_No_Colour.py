@@ -120,12 +120,22 @@ def intcheck(question, low = None, high = None):
 # List of Possible Questions 
 questions = ["How tall is Mount Cook?", "When did Captain Cook come to New Zealand?", "When did New Zealand gain independence from Britain?",
 "What animal can you find on the NZ 1 dollar coin?", "In 1893, New Zealand became the first country to do what?", "What is a Tuatara?",
-"When was NZ Rugby Football Union founded?", "When was New Zealand's first Poppy Day?"]
+"When was NZ Rugby Football Union founded?", "When was New Zealand's first Poppy Day?", "New Zealand's highest mountain has been known by two names over the years. One is Mount Cook. What is the other?", 
+"Approximately what percentage of of the population of New Zealand is Maori?", "What was the kiwi-fruit first known as?", "'Kai Moana' is the base of the Maori diet. What does it mean?", 
+"How much of the land in New Zealand is used for agriculture?", "When did hamburger and pizza fast-food reach New Zealand?", 
+"The name 'New Zealand' in Maori is Aotearoa. What does this translate to in English?", "How many peaks does the South Island of New Zealand have?", 
+"What is the main religion of New Zealand?", "What is the closest country to New Zealand?", "What is the biggest city in New Zealand?", 
+"What is the longest river in New Zealand?"]
 
 # Corresponding List of Answers For Questions
 answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709", "1739", "1799", "1769", "1917", "1927", "1937", "1947",
-"Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", 
-"Give women the right to vote", "Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922"]
+"Kakapo", "Seal", "Takahe", "Kiwi", "Abolish slavery", "Legalise same-sex marriage", "Give workers paid holidays", "Give women the right to vote", 
+"Mammal", "Bird", "Insect", "Reptile", "1852", "1872", "1902", "1892", "1932", "1943", "1953", "1922", "Allenby", "Adam Joachim", "Arethusa", "Aoraki", 
+"90%", "65%", "30%", "10%", "The Japanese Apple", "The Thai Starfruit", "The Indian Greengage", "The Chinese Gooseberry", "Food From The Ground", 
+"Food From The Animals", "Food From The Trees", "Food From The Sea", "3%", "60%", "42%", "15%", "1950s", "1980s", "1970s", "1960s", 
+"Land of Peace and Water", "Land of the Pink Flowers", "Land of The Two Green Islands", "Land of The Long White Cloud", "27", "6", "10", "18", 
+"Buddhism", "Islam", "The Ratana Church", "Christianity", "Chile", "Antigua and Barbuda", "Spain", "Australia", "Hamilton", "Christchurch", 
+"Wellington", "Auckland", "Taieri River", "Whanganui River", "Clutha River", "Waikato River"]
 
 # Introduction
 print()
@@ -140,7 +150,7 @@ while keep_going == "":
 
     # Ask the user how many questions they want to answer
     print()
-    num_of_questions = intcheck("How many questions do you want to answer? ", 1, 8)
+    num_of_questions = intcheck("How many questions do you want to answer? ", 1, 20)
     print()
     
     # Set game score variables
@@ -158,7 +168,7 @@ while keep_going == "":
     while q_answered < num_of_questions:
         
         # Choose random question number
-        question = random.randint(0, 7)
+        question = random.randint(0, 19)
 
         # Prevent duplicate questions
         if question <= 9:
