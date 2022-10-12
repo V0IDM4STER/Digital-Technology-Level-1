@@ -175,7 +175,7 @@ while keep_going == "":
             else:
                 print("Please enter either a, b, c, or d.")
 
-        # Add question number to list fo already asked questions
+        # Add question number to list for already asked questions
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:

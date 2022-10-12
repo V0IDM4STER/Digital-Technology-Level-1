@@ -211,7 +211,7 @@ while keep_going == "":
                 print(colored("Please enter either A, B, C, or D.", 'red'))
                 print()
 
-        # Add question number to list for already asked questions
+        # Add question number to lists for already asked questions
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
@@ -224,9 +224,9 @@ while keep_going == "":
 
     # Print game scores
     print("-------------  Game Scores  -------------")
-    print(" ---  Correct: {}  |  Incorrect: {}  ---".format(num_correct, num_incorrect))
+    print(" ---  Correct: {}  |  Incorrect: {}  --- ".format(num_correct, num_incorrect))
     print("-----------------------------------------")
 
     # Ask user if they want to play again
     print()
-    keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or q and <enter> to quit: ")
