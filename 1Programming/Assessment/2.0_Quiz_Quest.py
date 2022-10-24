@@ -22,7 +22,8 @@ def question_generator(question, list1, list2):
     global d
 
     # Print the question
-    print(list1[question])
+    print(colored("Question {}: {}".format(q_answered + 1, list1[question]), attrs=['bold']))
+    print()
 
     # Get answers from answer list
     if question == 0:
@@ -79,6 +80,7 @@ def question_generator(question, list1, list2):
     print("B. {}".format(pattern[1]))
     print("C. {}".format(pattern[2]))
     print("D. {}".format(pattern[3]))
+    print()
 
 # Input Checking Function
 def intcheck(question, low = None, high = None):
@@ -229,4 +231,4 @@ while keep_going == "":
 
     # Ask user if they want to play again
     print()
-    keep_going = input("Press <enter> to play again or q and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or Q and <enter> to quit: ")
