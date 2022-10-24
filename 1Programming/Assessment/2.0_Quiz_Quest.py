@@ -87,16 +87,16 @@ def intcheck(question, low = None, high = None):
 
     # Sets up error message
     if low is not None and high is not None:
-        error = "Please enter an integer between {} and {}. ".format(low, high)
+        error = "ERROR: Please enter an integer between {} and {}. ".format(low, high)
     
     elif low is not None and high is None:
-        error = "Please enter an integer that is more than than or equal to {}. ".format(low)
+        error = "ERROR: Please enter an integer that is more than than or equal to {}. ".format(low)
     
     elif low is None and high is not None:
-        error = "Please enter an integer that is less than or equal to {}. ".format(high)
+        error = "ERROR: Please enter an integer that is less than or equal to {}. ".format(high)
     
     else: 
-        error = "Please enter an integer. "
+        error = "ERROR: Please enter an integer. "
 
     while True:
         try: 
@@ -210,7 +210,7 @@ while keep_going == "":
                 valid_answer = True
             else:
                 print()
-                print(colored("Please enter either A, B, C, or D.", 'red'))
+                print(colored("ERROR: Please enter either A, B, C, or D.", 'red'))
                 print()
 
         # Add question number to lists for already asked questions
@@ -231,4 +231,4 @@ while keep_going == "":
 
     # Ask user if they want to play again
     print()
-    keep_going = input("Press <enter> to play again or Q and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or Q (or any other letter) and <enter> to quit: ")
