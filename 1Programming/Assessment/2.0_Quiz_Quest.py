@@ -147,7 +147,7 @@ answers = ["3,518 metres", "4,289 metres", "3,945 metres", "3,754 metres", "1709
 
 # Introduction
 print()
-print("*** Welcome to the NZ Trivia Quiz Game ***")
+print(colored("*** Welcome to the NZ Trivia Quiz Game ***", attrs=['bold']))
 print()
 print("In this game, you'll answer a series of questions based around New Zealand history, geography, and culture.")
 
