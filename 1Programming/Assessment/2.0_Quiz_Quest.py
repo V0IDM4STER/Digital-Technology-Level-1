@@ -51,7 +51,7 @@ def question_generator(question, list1, list2):
     pattern4 = [c, d, a, b]
     pattern5 = [d, a, b, c]
 
-    pattern_num = random.randint(1, 5)
+    pattern_num = random.randint(1, 4)
     
     # Set correct/incorrect answers depending on pattern
     if pattern_num == 1:
@@ -70,10 +70,6 @@ def question_generator(question, list1, list2):
         pattern = pattern4
         correct_answer = "b"
         incorrect_answers = ["a", "c", "d"]
-    else:
-        pattern = pattern5
-        correct_answer = "a"
-        incorrect_answers = ["b", "c", "d"]
     
     # Print possible answers
     print("A. {}".format(pattern[0]))

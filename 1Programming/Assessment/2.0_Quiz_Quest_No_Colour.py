@@ -16,7 +16,8 @@ def question_generator(question, list1, list2):
     global d
 
     # Print the question
-    print(list1[question])
+    print("Question {}: {}".format(q_answered + 1, list1[question]))
+    print()
 
     # Get answers from answer list
     if question == 0:
@@ -44,7 +45,7 @@ def question_generator(question, list1, list2):
     pattern4 = [c, d, a, b]
     pattern5 = [d, a, b, c]
 
-    pattern_num = random.randint(1, 5)
+    pattern_num = random.randint(1, 4)
     
     # Set correct/incorrect answers depending on pattern
     if pattern_num == 1:
@@ -63,32 +64,29 @@ def question_generator(question, list1, list2):
         pattern = pattern4
         correct_answer = "b"
         incorrect_answers = ["a", "c", "d"]
-    else:
-        pattern = pattern5
-        correct_answer = "a"
-        incorrect_answers = ["b", "c", "d"]
     
     # Print possible answers
     print("A. {}".format(pattern[0]))
     print("B. {}".format(pattern[1]))
     print("C. {}".format(pattern[2]))
     print("D. {}".format(pattern[3]))
+    print()
 
 # Input Checking Function
 def intcheck(question, low = None, high = None):
 
     # Sets up error message
     if low is not None and high is not None:
-        error = "Please enter an integer that is between {} and {}. ".format(low, high)
+        error = "ERROR: Please enter an integer between {} and {}. ".format(low, high)
     
     elif low is not None and high is None:
-        error = "Please enter an integer that is more than than or equal to {}. ".format(low)
+        error = "ERROR: Please enter an integer that is more than than or equal to {}. ".format(low)
     
     elif low is None and high is not None:
-        error = "Please enter an integer that is less than or equal to {}. ".format(high)
+        error = "ERROR: Please enter an integer that is less than or equal to {}. ".format(high)
     
     else: 
-        error = "Please enter an integer. "
+        error = "ERROR: Please enter an integer. "
 
     while True:
         try: 
@@ -150,7 +148,7 @@ while keep_going == "":
 
     # Ask the user how many questions they want to answer
     print()
-    num_of_questions = intcheck("How many questions do you want to answer? ", 1, 20)
+    num_of_questions = intcheck("How many questions do you want to answer? ", 1,20)
     print()
     
     # Set game score variables
@@ -202,14 +200,14 @@ while keep_going == "":
                 valid_answer = True
             else:
                 print()
-                print("Please enter either A, B, C, or D.")
+                print("ERROR: Please enter either A, B, C, or D.")
                 print()
 
-        # Add question number to list for already asked questions
+        # Add question number to lists for already asked questions
         if question <= 9:
             already_asked_small.append(question)
         elif question > 9:
-            already_asked_large(question)
+            already_asked_large.append(question)
         
         # Add 1 to number of questions answered
         q_answered += 1
@@ -217,10 +215,10 @@ while keep_going == "":
         valid_answer = False
 
     # Print game scores
-    print("------------  Game Scores  ------------")
-    print("---  Correct: {}  |  Incorrect: {}  ---".format(num_correct, num_incorrect))
-    print("---------------------------------------")
+    print("-------------  Game Scores  -------------")
+    print(" ---  Correct: {}  |  Incorrect: {}  --- ".format(num_correct, num_incorrect))
+    print("-----------------------------------------")
 
     # Ask user if they want to play again
     print()
-    keep_going = input("Press <enter> to play again or a letter and <enter> to quit: ")
+    keep_going = input("Press <enter> to play again or Q (or any other letter) and <enter> to quit: ")
