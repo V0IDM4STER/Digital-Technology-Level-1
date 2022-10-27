@@ -14,42 +14,40 @@ import random
 from termcolor import colored
 
 # Question + Answer Generator Function
-def question_generator(question, list1, list2):
+def question_generator(question, list_of_questions, list_of_answers):
     # Set up global variables
-    global pattern
     global correct_answer
     global incorrect_answers
     global d
 
     # Print the question
-    print(colored("Question {}: {}".format(q_answered + 1, list1[question]), attrs=['bold']))
+    print(colored("Question {}: {}".format(q_answered + 1, list_of_questions[question]), attrs=['bold']))
     print()
 
     # Get answers from answer list
     if question == 0:
-        a = list2[0]
-        b = list2[1]
-        c = list2[2]
-        d = list2[3]
+        a = list_of_answers[0]
+        b = list_of_answers[1]
+        c = list_of_answers[2]
+        d = list_of_answers[3]
     
     else:
         question += 1
 
         a_raw = question * 4 - 4
-        a = list2[a_raw]
+        a = list_of_answers[a_raw]
         b_raw = question * 4 - 3
-        b = list2[b_raw]
+        b = list_of_answers[b_raw]
         c_raw = question * 4 - 2
-        c = list2[c_raw]
+        c = list_of_answers[c_raw]
         d_raw = question * 4 - 1
-        d = list2[d_raw]
+        d = list_of_answers[d_raw]
 
     # Set up answer patterns and choose one
     pattern1 = [a, b, c, d]
     pattern2 = [d, c, b, a]
     pattern3 = [b, a, d, c]
     pattern4 = [c, d, a, b]
-    pattern5 = [d, a, b, c]
 
     pattern_num = random.randint(1, 4)
     
@@ -154,7 +152,7 @@ while keep_going == "":
 
     # Ask the user how many questions they want to answer
     print()
-    num_of_questions = intcheck("How many questions do you want to answer? ", 1,20)
+    num_of_questions = intcheck("How many questions do you want to answer? ", 1, 20)
     print()
     
     # Set game score variables
